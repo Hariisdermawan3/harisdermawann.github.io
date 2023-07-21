@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./app.js"></script>
+    <link rel="stylesheet" href="/css/skil.css">
+    <title>Portofolio</title>
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="#">Haris Darmawan</a></div>
+        <div class="links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/asset/about.html">About</a></li>
+        <li><a href="/asset/skil.html">Skills</a></li>
+        <li><a href="/asset/portofolio.html">Portofolio</a></li>
+        <li><a href="/asset/contact.html">Contact</a></li>
+        </div>
+        <div class="links">
+            <a href="https://www.instagram.com/haris.dermawan_/"><i class="fa fa-instagram"></i></a>
+            <a href="https://twitter.com/HariisDermawaan"><i class="fa fa-twitter"></i></a>
+            <a href="https://github.com/harisdermawan03"><i class="fa fa-github"></i></a>
+        </div>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      </div>
+
+      <div class="dropdown_menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/asset/about.html">About</a></li>
+        <li><a href="/asset/skil.html">Skills</a></li>
+        <li><a href="/asset/portofolio.html">Portofolio</a></li>
+        <li><a href="/asset/contact.html">Contact</a></li>
+        <li><a href="#" class="action_btn">Download Cv</a></li>
+      </div>
+    </header>
+    <!--Akhir-->
+    <main>
+        <section id="hero">
+            <div class='container'>
+    
+                <h5 class='title'> SKILLS ME </h5>
+            
+                <div class='skillBox'>
+            
+                  <div class='skillBar'>
+                    <a class='ion-social-html5-outline'> </a>
+                    <span class='skillName'> HTML5 </span>
+                    <div class="skillArea">
+                      <span class="skill-HTML"> </span>
+                    </div><!-- skillArea -->
+                  </div><!-- skillBar -->
+            
+                  <div class='skillBar'>
+                    <a class='ion-social-css3-outline'> </a>
+                    <span class='skillName'> CSS3 </span>
+                    <div class="skillArea">
+                      <span class="skill-CSS"> </span>
+                    </div><!-- skillArea -->
+                  </div><!-- skillBar -->
+            
+                  <div class='skillBar'>
+                    <a class='ion-social-javascript'> </a>
+                    <span class='skillName'> C++ </span>
+                    <div class="skillArea">
+                      <span class="skill-JS"> </span>
+                    </div><!-- skillArea -->
+                  </div><!-- skillBar -->
+            
+                  <div class='skillBar'>
+                    <a class='ion-social-angular-outline'> </a>
+                    <span class='skillName'> JAVASCRIPT </span>
+                    <div class="skillArea">
+                      <span class="skill-A4"> </span>
+                    </div><!-- skillArea -->
+                  </div><!-- skillBar -->
+            
+                  <div class='skillBar'>
+                    <a class='ion-social-nodejs'> </a>
+                    <span class='skillName'> DESIGN </span>
+                    <div class="skillArea">
+                      <span class="skill-NODEJS"> </span>
+                    </div><!-- skillArea -->
+                  </div><!-- skillBar --> 
+                  <div class='skillBar'>
+                    <a class='ion-social-wordpress-outline'> </a>
+                    <span class='skillName'> BOOTSTRAP 5 </span>
+                    <div class="skillArea">
+                      <span class="skill-WP"> </span>
+                    </div><!-- skillArea -->
+                  </div><!-- skillBar -->    
+              </div><!-- container -->
+        </section>
+    </main>
+    <!-- End of Container -->
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropdownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function(){
+         dropdownMenu.classList.toggle('open')
+         const isOpen = dropdownMenu.classList.contains('open')
+
+         toggleBtnIcon.classList = isOpen
+         ? 'fa-solid fa-xmark'
+         : 'fa-solid fa-bars'
+        }
+
+        const progressbarContainer = document.querySelector('.progressbar-container');
+const totalWidth = parseInt(getComputedStyle(progressbarContainer).width);
+const volume = document.querySelectorAll('.volume');
+//const skillBox = document.querySelectorAll('.skill-box');
+
+
+
+// resize the volume of boxes with the values
+volume.forEach(element => {
+    const vol = parseInt(element.parentElement.parentElement.children[1].innerText);
+    element.style.width = `${vol}%`;
+    if(vol > 85){
+      element.style.backgroundColor ="green";
+      element.parentElement.style="box-shadow: 0 0 5px 2px #00FF0030;"
+    }
+});
+
+
+
+// Change the Pointer of Volume
+const skillQuantity = document.querySelectorAll('.skill-quantity');
+
+skillQuantity.forEach(element => {
+    let val = parseInt(element.innerText);
+    // becuase the pointer overflow of box in 100%
+    if (val == 100) {
+        val -= .4;
+    }
+    // Width of valueText / 2 => put on the pointerLine
+    const textWidth = parseInt(getComputedStyle(element).width) / 2;
+    //calcute the place of the pointer
+    element.style.right = `${totalWidth-textWidth-(val*totalWidth/100)}px`
+});
+
+    </script>
+</body>
+</html>
